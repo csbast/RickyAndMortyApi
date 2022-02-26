@@ -18,11 +18,10 @@ object AppModule {
     @Singleton
     @Named("apiService")
     fun provideApiService(): ApiService {
-        val api = Retrofit.Builder()
-            .baseUrl("https://rickandmortyapi.com/api")
+        return Retrofit.Builder()
+            .baseUrl("https://rickandmortyapi.com/api/")
             .addConverterFactory(GsonConverterFactory.create())
             .build()
             .create(ApiService::class.java)
-        return api
     }
 }

@@ -10,7 +10,7 @@ import com.bumptech.glide.Glide
 import com.example.rickyandmortyapi.R
 import com.example.rickyandmortyapi.model.Character
 
-class Adapter(private val charactersList: List<Character>):
+class Adapter(private val charactersList: MutableList<Character>):
     RecyclerView.Adapter<Adapter.ViewHolder>(){
 
     class ViewHolder(view: View) : RecyclerView.ViewHolder(view) {
@@ -37,4 +37,9 @@ class Adapter(private val charactersList: List<Character>):
     }
 
     override fun getItemCount(): Int = charactersList.size
+
+    fun updateCharacters(characters: List<Character>){
+        charactersList.addAll(characters)
+        notifyDataSetChanged()
+    }
 }

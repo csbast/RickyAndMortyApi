@@ -6,7 +6,7 @@
 
     <androidx.cardview.widget.CardView
         android:id="@+id/cardView"
-        android:backgroundTint="#CAC6D1"
+        android:backgroundTint="#66626E"
         android:layout_width="match_parent"
         android:layout_height="200dp"
         app:cardCornerRadius="8dp"
@@ -35,7 +35,7 @@
                 android:layout_height="wrap_content"
                 android:layout_marginStart="16dp"
                 android:text="@string/character_name"
-                android:textColor="#978989"
+                android:textColor="#F4F4F4"
                 android:textStyle="bold"
                 app:layout_constraintBottom_toBottomOf="@+id/imageView"
                 app:layout_constraintStart_toEndOf="@+id/imageView"
