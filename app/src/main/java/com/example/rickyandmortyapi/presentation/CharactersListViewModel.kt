@@ -25,21 +25,20 @@ class CharactersListViewModel @Inject constructor() : ViewModel() {
     lateinit var apiService: ApiService
 
    fun setupNetwork() {
-        if(apiService != null) {
-            apiService.fetchAllUsers().enqueue(object : Callback<TesteResponse> {
-                override fun onResponse(call: Call<TesteResponse>, response: Response<TesteResponse>) {
-                    response.body().let {
-                        val apiResponse = response.body()
-//                        val characters = apiResponse?.charactersList
-                        Log.d("###", "Retrofit onSucess: ${apiResponse.toString()}")
-                    }
-                }
+       apiService.fetchAllUsers().enqueue(object : Callback<TesteResponse> {
+           override fun onResponse(call: Call<TesteResponse>, response: Response<TesteResponse>) {
+               response.body().let {
+                   val apiResponse = response.body()
+                   val characters = apiResponse?.results
+                   Log.d("###", "Retrofit onSucess: ${characters.toString()}")
+                   _characterListLiveData.postValue(characters!!)
+               }
+           }
 
-                override fun onFailure(call: Call<TesteResponse>, t: Throwable) {
-                    Log.d("###", "Retrofit on Failure")
-                }
-            })
-        }
+           override fun onFailure(call: Call<TesteResponse>, t: Throwable) {
+               Log.d("###", "Retrofit on Failure")
+           }
+       })
 
     }
 }
