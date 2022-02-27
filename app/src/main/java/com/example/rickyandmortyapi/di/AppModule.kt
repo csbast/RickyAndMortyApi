@@ -1,6 +1,6 @@
 package com.example.rickyandmortyapi.di
 
-import com.example.rickyandmortyapi.service.ApiService
+import com.example.rickyandmortyapi.data.service.ApiService
 import dagger.Module
 import dagger.Provides
 import dagger.hilt.InstallIn

@@ -1,6 +1,6 @@
-package com.example.rickyandmortyapi.model
+package com.example.rickyandmortyapi.domain.model
 
-data class TesteCharacter(
+data class Character(
     val gender: String,
     val id: Int,
     val image: String,

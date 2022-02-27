@@ -1,4 +1,4 @@
-package com.example.rickyandmortyapi.model
+package com.example.rickyandmortyapi.domain.model
 
 data class Info(
     val count: Int,

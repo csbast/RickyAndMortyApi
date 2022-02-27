@@ -6,9 +6,9 @@
 
     <androidx.cardview.widget.CardView
         android:id="@+id/cardView"
-        android:backgroundTint="#66626E"
+        android:backgroundTint="#F6F6F6"
         android:layout_width="match_parent"
-        android:layout_height="200dp"
+        android:layout_height="wrap_content"
         app:cardCornerRadius="8dp"
         app:cardElevation="16dp"
         android:layout_margin="8dp">
@@ -19,12 +19,12 @@
 
             <ImageView
                 android:id="@+id/imageView"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
+                android:layout_width="100dp"
+                android:layout_height="100dp"
+                android:layout_margin="16dp"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintTop_toTopOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
-                android:layout_marginStart="16dp"
                 tools:layout_editor_absoluteX="27dp"
                 tools:srcCompat="@tools:sample/avatars"
                 android:contentDescription="@string/app_name" />
@@ -35,7 +35,7 @@
                 android:layout_height="wrap_content"
                 android:layout_marginStart="16dp"
                 android:text="@string/character_name"
-                android:textColor="#F4F4F4"
+                android:textColor="#69BC14"
                 android:textStyle="bold"
                 app:layout_constraintBottom_toBottomOf="@+id/imageView"
                 app:layout_constraintStart_toEndOf="@+id/imageView"

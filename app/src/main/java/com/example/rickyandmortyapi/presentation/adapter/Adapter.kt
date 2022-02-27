@@ -1,4 +1,4 @@
-package com.example.rickyandmortyapi.adapter
+package com.example.rickyandmortyapi.presentation.adapter
 
 import android.view.LayoutInflater
 import android.view.View
@@ -7,10 +7,11 @@ import android.widget.ImageView
 import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
+import com.bumptech.glide.request.RequestOptions
 import com.example.rickyandmortyapi.R
-import com.example.rickyandmortyapi.model.TesteCharacter
+import com.example.rickyandmortyapi.domain.model.Character
 
-class Adapter(private val charactersList: MutableList<TesteCharacter>):
+class Adapter(private val charactersList: MutableList<Character>):
     RecyclerView.Adapter<Adapter.ViewHolder>(){
 
     class ViewHolder(view: View) : RecyclerView.ViewHolder(view) {
@@ -33,12 +34,13 @@ class Adapter(private val charactersList: MutableList<TesteCharacter>):
         holder.name.text = characterName
         Glide.with(holder.itemView.context)
             .load(characterImage)
+            .apply(RequestOptions.circleCropTransform())
             .into(holder.image)
     }
 
     override fun getItemCount(): Int = charactersList.size
 
-    fun updateCharacters(characters: List<TesteCharacter>){
+    fun updateCharacters(characters: List<Character>){
         charactersList.addAll(characters)
         notifyDataSetChanged()
     }
