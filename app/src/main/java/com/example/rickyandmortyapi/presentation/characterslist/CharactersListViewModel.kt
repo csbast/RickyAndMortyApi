@@ -1,4 +1,4 @@
-package com.example.rickyandmortyapi.presentation
+package com.example.rickyandmortyapi.presentation.characterslist
 
 import android.util.Log
 import androidx.lifecycle.LiveData
