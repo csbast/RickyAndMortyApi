@@ -4,8 +4,8 @@ import android.util.Log
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
-import com.example.rickyandmortyapi.model.ApiResponse
-import com.example.rickyandmortyapi.model.Character
+import com.example.rickyandmortyapi.model.TesteCharacter
+import com.example.rickyandmortyapi.model.TesteResponse
 import com.example.rickyandmortyapi.service.ApiService
 import dagger.hilt.android.lifecycle.HiltViewModel
 import retrofit2.Call
@@ -17,8 +17,8 @@ import javax.inject.Named
 @HiltViewModel
 class CharactersListViewModel @Inject constructor() : ViewModel() {
 
-    private val _characterListLiveData = MutableLiveData<List<Character>>()
-    val characterListLiveData: LiveData<List<Character>> get() = _characterListLiveData
+    private val _characterListLiveData = MutableLiveData<List<TesteCharacter>>()
+    val characterListLiveData: LiveData<List<TesteCharacter>> get() = _characterListLiveData
 
     @Inject
     @Named("apiService")
@@ -26,16 +26,16 @@ class CharactersListViewModel @Inject constructor() : ViewModel() {
 
    fun setupNetwork() {
         if(apiService != null) {
-            apiService.fetchAllUsers().enqueue(object : Callback<ApiResponse> {
-                override fun onResponse(call: Call<ApiResponse>, response: Response<ApiResponse>) {
+            apiService.fetchAllUsers().enqueue(object : Callback<TesteResponse> {
+                override fun onResponse(call: Call<TesteResponse>, response: Response<TesteResponse>) {
                     response.body().let {
                         val apiResponse = response.body()
-                        val characters = apiResponse?.charactersList
-                        Log.d("###", "Retrofit onSucess: ${characters.toString()}")
+//                        val characters = apiResponse?.charactersList
+                        Log.d("###", "Retrofit onSucess: ${apiResponse.toString()}")
                     }
                 }
 
-                override fun onFailure(call: Call<ApiResponse>, t: Throwable) {
+                override fun onFailure(call: Call<TesteResponse>, t: Throwable) {
                     Log.d("###", "Retrofit on Failure")
                 }
             })

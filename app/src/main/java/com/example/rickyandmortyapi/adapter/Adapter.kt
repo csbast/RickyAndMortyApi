@@ -8,9 +8,9 @@ import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
 import com.example.rickyandmortyapi.R
-import com.example.rickyandmortyapi.model.Character
+import com.example.rickyandmortyapi.model.TesteCharacter
 
-class Adapter(private val charactersList: MutableList<Character>):
+class Adapter(private val charactersList: MutableList<TesteCharacter>):
     RecyclerView.Adapter<Adapter.ViewHolder>(){
 
     class ViewHolder(view: View) : RecyclerView.ViewHolder(view) {
@@ -38,7 +38,7 @@ class Adapter(private val charactersList: MutableList<Character>):
 
     override fun getItemCount(): Int = charactersList.size
 
-    fun updateCharacters(characters: List<Character>){
+    fun updateCharacters(characters: List<TesteCharacter>){
         charactersList.addAll(characters)
         notifyDataSetChanged()
     }
