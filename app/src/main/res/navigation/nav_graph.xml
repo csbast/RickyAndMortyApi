@@ -10,5 +10,14 @@
         android:name="com.example.rickyandmortyapi.presentation.characterslist.CharactersListFragment"
         android:label="Characters List"
         tools:layout="@layout/characters_list_fragment"
-        />
+        >
+        <action
+            android:id="@+id/action_charactersListFragment_to_detailFragment"
+            app:destination="@id/detailFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/detailFragment"
+        android:name="com.example.rickyandmortyapi.DetailFragment"
+        android:label="fragment_detail"
+        tools:layout="@layout/fragment_detail" />
 </navigation>

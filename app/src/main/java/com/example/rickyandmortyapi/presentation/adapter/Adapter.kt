@@ -17,6 +17,8 @@ class Adapter(private val charactersList: MutableList<Character>):
     class ViewHolder(view: View) : RecyclerView.ViewHolder(view) {
 
         val name: TextView = view.findViewById(R.id.characterNameTextView)
+        val status: TextView = view.findViewById(R.id.statusTv)
+        val species: TextView = view.findViewById(R.id.speciesTv)
         val image: ImageView = view.findViewById(R.id.imageView)
     }
 
@@ -30,11 +32,14 @@ class Adapter(private val charactersList: MutableList<Character>):
 
         val characterName = character.name
         val characterImage = character.image
+        val characterStatus = character.status
+        val characterSpecies = character.species
 
         holder.name.text = characterName
+        holder.species.text = characterSpecies
+        holder.status.text = characterStatus
         Glide.with(holder.itemView.context)
             .load(characterImage)
-            .apply(RequestOptions.circleCropTransform())
             .into(holder.image)
     }
 
